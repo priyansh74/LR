@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   //Local state variables
@@ -48,9 +49,11 @@ const Body = () => {
           <button
             onClick={() => {
               console.log(searchText);
+              //we are searching from untouched listOfRestaurants
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
+              //but updating filteredRes state since, listoFRes should be kept safe for further use in search, or any feature.
               setFilteredRestaurant(filteredRestaurant);
             }}
           >
@@ -74,7 +77,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant?.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+         <Link  key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}> <RestaurantCard resData={restaurant} /></Link> 
         ))}
       </div>
     </div>
