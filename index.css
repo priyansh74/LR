@@ -60,3 +60,13 @@
 .filter{
     display: flex;
 }
+
+.user-card{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid black;
+}
+.github-img{
+    height: 150px;
+    border-radius: 50%;
+}
