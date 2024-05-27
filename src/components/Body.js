@@ -39,19 +39,20 @@ if(onlineStatus === false) return <h1>Looks like you're offline!! Please check y
   return listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
+    <div className="body px-16 py-8">
+      <div className="filter flex">
+        <div className="search my-4 mx-2 px-4 py-2">
           <input
             type="text"
-            className="search-box"
+            placeholder="Search Restaurant Name"
+            className="border border-solid border-black pr-14 pl-2 py-[6px]"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
 
-          <button
+          <button className="px-4 py-2 bg-gray-100 m-4 rounded-lg hover:bg-gray-200"
             onClick={() => {
               console.log(searchText);
               //we are searching from untouched listOfRestaurants
@@ -65,8 +66,9 @@ if(onlineStatus === false) return <h1>Looks like you're offline!! Please check y
             Search
           </button>
         </div>
+        <div className="m-4 p-4 flex items-center">
         <button
-          className="filter-btn"
+          className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200"
           onClick={() => {
             console.log(listOfRestaurants);
             const filterdList = listOfRestaurants.filter(
@@ -79,8 +81,9 @@ if(onlineStatus === false) return <h1>Looks like you're offline!! Please check y
         >
           Top Rated Restaurants
         </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredRestaurant?.map((restaurant) => (
          <Link  key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}> <RestaurantCard resData={restaurant} /></Link> 
         ))}
