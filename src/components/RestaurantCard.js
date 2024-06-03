@@ -18,4 +18,19 @@ const RestaurantCard = (props) => {
     </div>
   );
 };
+
+//Higher order components (functions) -> A function that takes a component and return a component.
+export const withPromotedLabel = (RestaurantCard) => {
+
+  //the initilisation for the component happened like this Body.js : const RestaurantCardPromoted = withPromotedLabel(RestaurantCard); //fn call returning a comp.
+  //the props below is coming from the call here: <RestaurantCardPromoted resData={restaurant}/>
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute  bg-slate-500 text-white m-2 p-2 rounded-lg">Promoted</label>
+        <RestaurantCard {...props}/>
+      </div>
+    );
+  };
+};
 export default RestaurantCard;
