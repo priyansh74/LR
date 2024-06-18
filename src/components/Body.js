@@ -52,6 +52,7 @@ const { loggedInUser, setUserName } = useContext(UserContext);
         <div className="search my-4 mx-2 px-4 py-2">
           <input
             type="text"
+            data-testid="searchInput"
             placeholder="Search Restaurant Name"
             className="border border-solid border-black pr-14 pl-2 py-[6px]"
             value={searchText}
